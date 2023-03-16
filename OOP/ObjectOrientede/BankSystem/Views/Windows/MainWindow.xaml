@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:vm="clr-namespace:BankSystem.ViewModels"
+        Background="#272B2F"
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        AllowsTransparency="False"
-        Background="#272B2F"
+        ResizeMode="NoResize"
         x:Name="ThisWindow">
 
     <Window.DataContext>
