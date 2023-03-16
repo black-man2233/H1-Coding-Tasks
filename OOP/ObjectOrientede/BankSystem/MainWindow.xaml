@@ -9,13 +9,15 @@
         xmlns:vm="clr-namespace:BankSystem.ViewModels"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Background="#121212">
+        AllowsTransparency="False"
+        Background="#272B2F"
+        x:Name="ThisWindow">
 
     <Window.DataContext>
         <vm:NavigationVM/>
     </Window.DataContext>
 
-    <Grid Background="#121212">
+    <Grid Background="#272B2F">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="700"/>
@@ -47,8 +49,7 @@
         </Grid>
 
         <!--CurrentView-->
-        <Grid Grid.Column="1"
-              Margin="20,0,0,0" >
+        <Grid Grid.Column="1">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -59,7 +60,9 @@
             <Button Width="50"
                     Height="50"
                     BorderBrush="Transparent"
-                    HorizontalAlignment="Right">
+                    HorizontalAlignment="Right" 
+                    Command="{Binding CloseCommand}"
+                    CommandParameter="{Binding ElementName=ThisWindow, Mode=OneWay}">
                 <Button.Background>
                     <ImageBrush ImageSource="https://cdn-icons-png.flaticon.com/512/9838/9838664.png"/>
                 </Button.Background>
@@ -67,7 +70,8 @@
 
             <ContentControl Content="{Binding CurrentView}" 
                             Grid.Row="1"
-                            Height="400"/>
+                            Height="400"
+                            Width="700"/>
 
         </Grid>
 

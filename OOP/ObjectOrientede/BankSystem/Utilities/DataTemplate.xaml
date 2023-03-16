@@ -6,5 +6,8 @@
     <DataTemplate DataType="{x:Type vm:UserProfileVM}">
         <view:UserProfile/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:HomeVM}">
+        <view:Home/>
+    </DataTemplate>
 
 </ResourceDictionary>

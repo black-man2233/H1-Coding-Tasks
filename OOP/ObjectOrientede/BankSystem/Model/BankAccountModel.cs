@@ -27,7 +27,6 @@ namespace BankSystem.Model
             {
                 Console.WriteLine($"Du har ikke nok penge på din konto \n Din Balance er på {Balance}");
             }
-
         }
 
 
@@ -37,5 +36,4 @@ namespace BankSystem.Model
             else { return false; }
         }
     }
-
 }
