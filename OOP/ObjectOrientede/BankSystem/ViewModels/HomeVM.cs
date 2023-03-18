@@ -5,6 +5,7 @@ namespace BankSystem.ViewModels
 {
     public class HomeVM : ViewModelBase
     {
+        #region Properties
         private string _userName;
         public string UserName
         {
@@ -32,14 +33,25 @@ namespace BankSystem.ViewModels
             get { return _time; }
             set { _time = value; OnPropertyChanged(); }
         }
+        #endregion
 
-        public HomeVM()
+        #region Cunstructors
+        public HomeVM(string name)
         {
-            this.UserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            this.UserName = name;
             _date = new DateModel();
 
             _time = new TimeModel();
             this.Time.Start();
-        }
+        } //Takes Name as parameter
+        public HomeVM()
+        {
+            this.UserName = new(CreateUserVM.CurrentUserAccount.UserName);
+
+            _date = new DateModel();
+            _time = new TimeModel();
+            this.Time.Start();
+        } //Takes no parameter
+        #endregion
     }
 }

@@ -9,43 +9,32 @@ namespace BankSystem.ViewModels
 {
     public class CreateUserVM : Utilities.ViewModelBase
     {
-        private string _name;
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-                OnPropertyChanged("Name");
-            }
-        }
+        public string Name { get; set; }
+        public BitmapImage ProfileImage { get; set; }
+        public static BankAccountModel CurrentUserAccount { get; set; } = new();
+
         public ICommand SignInCommand { get; set; }
-        BitmapImage ProfileImage { get; set; }
-
-        BankAccountModel _currentUser;
-
         public CreateUserVM()
         {
             SignInCommand = new RelayCommand(Singin);
-            _currentUser = new(System.Environment.UserName); //Gets the current PC user Name
-            _name = _currentUser.OwnerName;
-            ProfileImage = new();
-            //ProfileImage = _currentUser.ProfilePicrure.Source.ToString();
+            CurrentUserAccount = new(System.Environment.UserName); //Gets the current PC user Name
+            Name = CurrentUserAccount.UserName;
 
-            var a = _currentUser.ProfilePicrure.Source;
-            MessageBox.Show(a.GetType().ToString());
+            CurrentUserAccount.PhoneNumber = 32456985;
+            CurrentUserAccount.EmailAdress = new($"{CurrentUserAccount.UserName}@email.dk");
+            CurrentUserAccount.Adress = new("Struervej", 17, 9000, "Allborg");
+
+            ProfileImage = new BitmapImage(new Uri((CurrentUserAccount.ProfilePicture.Source).ToString()));
         }
+
         private void Singin(Object obj)
         {
-            if (obj is Window w)
+            if (obj is Window @this)
             {
                 MainWindow m = new();
                 m.Show();
-                w.Close();
+                @this.Close();
             }
-        }
+        } //On Sign in BUtton press
     }
 }

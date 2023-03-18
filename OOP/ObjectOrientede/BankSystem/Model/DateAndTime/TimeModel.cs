@@ -5,21 +5,21 @@ namespace BankSystem.Model.DateAndTime
 {
     public class TimeModel : Utilities.ViewModelBase
     {
-        private string _hour;
+        private string _hour = "00";
         public string Hour
         {
             get { return _hour; }
             set { _hour = value; OnPropertyChanged(); }
         }
 
-        private string _minutes;
+        private string _minutes = "00";
         public string Minutes
         {
             get { return _minutes; }
             set { _minutes = value; OnPropertyChanged(); }
         }
 
-        private string _second;
+        private string _second = "00";
         public string Second
         {
             get { return _second; }

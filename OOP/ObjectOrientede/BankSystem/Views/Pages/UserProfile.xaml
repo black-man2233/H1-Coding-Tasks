@@ -11,16 +11,18 @@
         <vm:UserProfileVM/>
     </UserControl.DataContext>
 
-    <Grid Background="#272B2F">
+
+    <Grid Background="#272B2F" DataContext="{Binding User}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="60"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!--Velkommeste Tekst-->
@@ -34,23 +36,23 @@
                 <ColumnDefinition Width="490"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="https://thispersondoesnotexist.xyz/img/4008.jpg" />
+            <Grid DataContext="{Binding ProfilePicture}">
+                <Image Source="{Binding Source}"/>
+            </Grid>
 
-            <StackPanel Orientation="Horizontal" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" 
+                        Grid.Column="1">
 
-                <TextBlock Text="{Binding Name, StringFormat=' {0} Lærke'}" 
+                <TextBlock Text="{Binding UserName, StringFormat=' {0} Efternavnesen'}" 
                            Foreground="White" 
                            Style="{StaticResource Home_TxtStyle}"
-                           FontSize="70"
-                           Grid.Column="0"
-                           HorizontalAlignment="Right"/>
+                           FontSize="50"
+                           Grid.Column="0"/>
 
             </StackPanel>
         </Grid>
 
-
-
-        <!--Navn-->
+        <!--Email-->
         <Grid Grid.Row="1"
               Grid.ColumnSpan="2"
               Margin="22"
@@ -61,51 +63,70 @@
                 <ColumnDefinition Width="490"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding }" />
+            <Image Source="https://cdn-icons-png.flaticon.com/512/552/552486.png" />
 
             <StackPanel Orientation="Horizontal" Grid.Column="1">
 
-                <TextBlock Text="{Binding Name, StringFormat=' {0} Lærke'}" 
+                <TextBlock Text="{Binding EmailAdress}" 
                    Foreground="White" 
-                   FontSize="70"
+                   FontSize="40"
                    Grid.Column="0"
                    HorizontalAlignment="Right"/>
 
             </StackPanel>
         </Grid>
 
-        <!--Klokken-->
+        <!--Phone number-->
         <Grid Grid.Row="2"
               Grid.ColumnSpan="2"
-              DataContext="{Binding Time}"
               Margin="22"
               HorizontalAlignment="Center">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="210"/>
-                <ColumnDefinition Width="480"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="490"/>
             </Grid.ColumnDefinitions>
-
-            <Image Source="https://cdn-icons-png.flaticon.com/512/9531/9531787.png"/>
+            <Image Source="https://cdn-icons-png.flaticon.com/512/3687/3687004.png" />
 
             <StackPanel Orientation="Horizontal" Grid.Column="1">
 
-                <TextBlock Text="{Binding Path=Hour,StringFormat=' {0} :'}" 
+                <TextBlock Text="{Binding PhoneNumber, StringFormat=' +45 {0}'}" 
                    Foreground="White" 
-                   FontSize="80"
+                   FontSize="40"
                    Grid.Column="0"
                    HorizontalAlignment="Right"/>
 
-                <TextBlock Text="{Binding Path=Minutes, StringFormat=' {0} :'}" 
-                   Foreground="White" 
-                   FontSize="80"
-                   />
-                <TextBlock Text="{Binding Path=Second,StringFormat=' {0}.'}" 
-                   Foreground="White" 
-                   FontSize="80"
-                   Grid.Column="2"
-                   HorizontalAlignment="Center"/>
             </StackPanel>
         </Grid>
+
+        <!--Phone number-->
+        <Grid Grid.Row="3"
+              Grid.ColumnSpan="2"
+              Margin="22"
+              HorizontalAlignment="Center">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="490"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="https://cdn-icons-png.flaticon.com/512/149/149060.png" />
+
+            <StackPanel Orientation="Horizontal" 
+                        Grid.Column="1"
+                        DataContext="{Binding Adress}">
+
+                <TextBlock Text="{Binding FullAdress}" 
+                   Foreground="White" 
+                   FontSize="40"
+                   Grid.Column="0"
+                   HorizontalAlignment="Left"/>
+
+            </StackPanel>
+        </Grid>
+
+
+
+
     </Grid>
 </UserControl>

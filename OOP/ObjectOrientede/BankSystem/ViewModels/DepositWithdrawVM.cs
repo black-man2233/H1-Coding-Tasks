@@ -2,13 +2,13 @@
 
 namespace BankSystem.ViewModels
 {
-    public class UserProfileVM
+    class DepositWithdrawVM
     {
         public BankAccountModel User { get; set; }
-        public UserProfileVM()
+
+        public DepositWithdrawVM()
         {
             User = new(CreateUserVM.CurrentUserAccount);
         }
-
     }
 }

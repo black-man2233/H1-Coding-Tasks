@@ -28,7 +28,7 @@
         <DockPanel Grid.Row="1"
                    Width="400">
 
-            <Image Source="{Binding Path=Name}"
+            <Image Source="{Binding Path=ProfileImage}"
                    Width="100"
                    Height="80"/>
 

@@ -28,21 +28,36 @@
         <Grid Grid.Column="0"
               Background="#1f1f1f" >
             <StackPanel VerticalAlignment="Center">
+
                 <Button Width="50"
                         Height="50"
                         BorderBrush="Transparent"
-                        Command="{Binding HomeCommand}">
+                        Command="{Binding ProfileCommand}"
+                        Margin="0,0,0,130">
+                    <Button.Background>
+                        <ImageBrush ImageSource="https://cdn-icons-png.flaticon.com/512/149/149071.png"/>
+                    </Button.Background>
+                </Button>
+
+                <!--Home Button-->
+                <Button Width="50"
+                        Height="50"
+                        BorderBrush="Transparent"
+                        Command="{Binding HomeCommand}"
+                        Margin="0,0,0,30">
                     <Button.Background>
                         <ImageBrush ImageSource="https://cdn-icons-png.flaticon.com/512/2550/2550430.png"/>
                     </Button.Background>
                 </Button>
 
+                <!--Withdraw Button-->
                 <Button Width="50"
                         Height="50"
                         BorderBrush="Transparent"
-                        Command="{Binding ProfileCommand}">
+                        Command="{Binding ProfileCommand}"
+                        Margin="0,0,0,110">
                     <Button.Background>
-                        <ImageBrush ImageSource="https://cdn-icons-png.flaticon.com/512/149/149071.png"/>
+                        <ImageBrush ImageSource="https://cdn-icons-png.flaticon.com/512/9652/9652666.png"/>
                     </Button.Background>
                 </Button>
 
