@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Runtime.CompilerServices;
+
 #pragma warning disable
 
 namespace CodeTesting;
@@ -8,48 +10,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        Program program = new Program();
-        program.AnimalSpeak(new Cat());
+        Program p = new();
+        Console.WriteLine(p.IsPalindrome(1121));
     }
 
-    void AnimalSpeak(IAnimal animal)
+    public bool IsPalindrome(int x)
     {
-        Console.WriteLine(animal.Speak());
-    }
-}
+        string news = null;
 
-public interface IAnimal
-{
-    string Name { get; set; }
-    string Speak();
-}
+        for (int j = x.ToString().Length - 1; j > -1; j--)
+            news += x.ToString()[j];
 
-public class Dog : IAnimal
-{
-    public string Name { get; set; }
 
-    public string Speak()
-    {
-        return "Woof";
-    }
-
-    public Dog()
-    {
-        Name = "Dog";
-    }
-}
-
-class Cat : IAnimal
-{
-    public string Name { get; set; }
-
-    public string Speak()
-    {
-        return "Meow";
-    }
-
-    public Cat()
-    {
-        Name = "Cat";
+        if (x.ToString() == news)
+            return true;
+        return false;
     }
 }
